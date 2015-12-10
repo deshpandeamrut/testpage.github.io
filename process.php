@@ -36,8 +36,8 @@ if ($action == "get") {
     $id = $todo['id'];
     $title = $todo['title'];
     $checked = $checked;
-    $insertSql = "insert into todo_project_test (title,checked) values ('$title','$checked')";
-    $result = db2_exec($con, $insertSql);
+    $insertSql = "insert into todo_app (title,checked) values ('$title','$checked')";
+    $result = mysql_query($insertSql);
     $data =  getTodos($con);
     echo $data;
 } else if ($action == "markdone") {
@@ -51,32 +51,36 @@ if ($action == "get") {
     } else {
         $checked = "true";
     }
-    $updateSql = "update todo_project_test set checked = '$checked' where id=$id";
+    $updateSql = "update todo_app set checked = '$checked' where id=$id";
 	// echo $updateSql;
-    $result = db2_exec($con, $updateSql);
+    $result = mysql_query($updateSql);
     $data =  getTodos($con);
     echo $data;
 } else if ($action == "delete") {
     $id = $_POST['mydata'];
-    $updateSql = "delete from todo_project_test  where id=$id";
-    $result = db2_exec($con, $updateSql);
+    $updateSql = "delete from todo_app  where id=$id";
+    $result = mysql_query($updateSql);
     $data =  getTodos($con);
     echo $data;
 } 
 
 
 function getTodos($con){
+	
     $responseData = array();
     if ($con) {
-        $fetchSql = "select id,title,checked, varchar_format(TIME_STAMP, 'Mon DD HH24:Mi') from todo_project_test order by id desc";
-        $result = db2_exec($con, $fetchSql);
-        while ($row = db2_fetch_array($result)) {
+        $fetchSql = "select id,title,checked, TIME_STAMP from todo_app order by id desc";
+        $result = mysql_query($fetchSql);
+        while ($row = mysql_fetch_array($result,MYSQL_NUM)) {
             $id = $row[0];
             $title = $row[1];
             $checked = $row[2];
             $time = $row[3];
             $responseData[] = array('id' => $id, 'title' => $title, 'checked' => $checked,'time' => $time);
         }
+		mysql_free_result($result);
+
+
         return json_encode($responseData);
     }
 }

@@ -223,7 +223,7 @@ app.controller('todoController', function ($scope, myService, $http, $timeout, $
     $scope.todos = [{}];
     $http({
         method: 'POST',
-        url: 'process.php',
+        url: 'http://nammabagalkot.in/Angular/process.php',
         data: {
             'action': 'get'
         },
@@ -232,6 +232,7 @@ app.controller('todoController', function ($scope, myService, $http, $timeout, $
         }
     })
             .success(function (data) {
+                console.log(data);
                 if (data.length == 0) {
                     console.log(data);
                     $scope.todos = data;
@@ -260,7 +261,7 @@ app.controller('todoController', function ($scope, myService, $http, $timeout, $
         $scope.newtodotext = "";
         $http({
             method: 'POST',
-            url: 'process.php',
+            url: 'http://nammabagalkot.in/Angular/process.php',
             data: {
                 'action': 'add',
                 'mydata': todo
@@ -291,7 +292,7 @@ app.controller('todoController', function ($scope, myService, $http, $timeout, $
         }
         $http({
             method: 'POST',
-            url: 'process.php',
+            url: 'http://nammabagalkot.in/Angular/process.php',
             data: {
                 'action': 'markdone',
                 'mydata': todo
@@ -319,7 +320,7 @@ app.controller('todoController', function ($scope, myService, $http, $timeout, $
         console.log(id);
         $http({
             method: 'POST',
-            url: 'process.php',
+            url: 'http://nammabagalkot.in/Angular/process.php',
             data: {
                 'action': 'delete',
                 'mydata': id

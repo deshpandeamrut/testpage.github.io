@@ -1,6 +1,6 @@
 <?php 
 //connecting the database server
-  $con = mysql_connect("localhost","root","");
+  $con = mysql_connect("localhost","amrut","GE1fr]}y@}68");
   
 //check if connection is established . if not print an error message
   if (!$con)
@@ -9,6 +9,6 @@
     }
   
 //connecting to the database
-  mysql_select_db("MobileApp", $con);
+  mysql_select_db("IonicApp", $con);
   ?>
   
