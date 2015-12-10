@@ -20,7 +20,7 @@ app.config(['$routeProvider',
   });
   
   app.controller('item1Controller',function(){
-    alert("item1 controller");
+//    alert("item1 controller");
   });
   app.controller('item2Controller',function(){
 //    alert("item2 controller");

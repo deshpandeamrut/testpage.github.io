@@ -1,0 +1,28 @@
+<div id="item2">
+    <div class="container">
+
+                <div class="flex">
+                    <div class="card item" ng-repeat="p in posts">
+                        <h4>{{p.title | removeHtml}}</h4>
+                        <img class="card-img-top" src="{{p.thumbnail_images.medium.url}}" alt="Card image cap">
+                        <p>{{p.date | removeHtml}}</p>
+                        <p>{{p.excerpt | removeHtml}}</p>
+                        <a href="#/post/{{p.id}}" class="btn btn-primary">View More</a>
+                    </div>
+                    
+                </div>
+<!--        <div class="flexs">
+            <div class="card" ng-repeat="p in posts">
+                
+                <img class="card-img-top" src="bg.jpg" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">{{p.title | removeHtml}}</h4>
+                    <p class="card-text">{{p.excerpt | removeHtml}}</p>
+                    <a href="#" class="btn btn-primary">Button</a>
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+</div>
+
