@@ -2,7 +2,7 @@
     <div class="containerWelcome">
         <h3>To Do</h3>
         <div>
-            <form ng-submit="submittodo()">
+            <form ng-submit="addTodo()">
                 <!--<input type="text" ng-model="newtodotext" class="form-control">-->
                 <md-input-container class="todoformwrapper">
                     <label>Add new to do</label>
@@ -11,19 +11,19 @@
             </form>
         </div>
         <div  class="todolist" ng-repeat="todo in todos track by $index">
-            <md-checkbox class="box-one" ng-model="todo.checked" aria-label="Finished?" ng-show="!todo.checked"  ng-click="change(todo)">
+            <md-checkbox class="box-one" ng-model="todo.checked" aria-label="Finished?" ng-show="!todo.checked"  ng-click="markDone(todo)">
                 {{todo.title}}  </md-checkbox>
-            <span class="actionIcons" ng-show="!todo.checked"></i> <i ng-click="deleteTodo(todo.id)" class="material-icons">delete</i></span>
+            <span class="actionIcons" ng-show="!todo.checked"></i> <i ng-click="removeTodo(todo)" class="material-icons">delete</i></span>
             <span class="lastEdited" ng-show="!todo.checked">created on {{todo.time}}</span>
         </div>
         <hr/>
         Ticked
         <hr/>
         <div  class="todolist" ng-repeat="todo in todos track by $index">
-            <md-checkbox class="box-one todo" ng-model="todo.checked" aria-label="Finished?" ng-show="todo.checked"  ng-click="change(todo)">
+            <md-checkbox class="box-one todo" ng-model="todo.checked" aria-label="Finished?" ng-show="todo.checked"  ng-click="markDone(todo)">
                 {{todo.title}}     
             </md-checkbox>
-            <span class="actionIcons" ng-show="todo.checked"></i> <i ng-click="deleteTodo(todo.id)" class="material-icons">delete</i></span>
+            <span class="actionIcons" ng-show="todo.checked"></i> <i ng-click="removeTodo(todo)" class="material-icons">delete</i></span>
         </div>
     </div>
 </div>

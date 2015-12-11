@@ -16,6 +16,8 @@ and open the template in the editor.
         <script src="js/ngAria.js"></script>
         <script src="js/jquery-1.11.1.js"></script>
         <script src="js/app.js"></script>
+        <script src="js/service.js"></script>
+        <script src="js/controller.js"></script>
         <link   rel="stylesheet" href="css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"     rel="stylesheet">
         <!--<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">-->
